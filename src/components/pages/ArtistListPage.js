@@ -66,7 +66,6 @@ const ArtistListPage = () => {
   };
 
   const handlePageChange = (page) => {
-    console.log(page);
     if (searchTerm) {
       setCurrentPage(page);
       handleSearch(page); // Pass searchTerm and page to handleSearch

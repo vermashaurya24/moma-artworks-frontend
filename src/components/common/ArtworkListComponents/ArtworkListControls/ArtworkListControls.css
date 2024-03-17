@@ -1,0 +1,13 @@
+.artwork-list-controls {
+   display: flex; /* Use flexbox */
+   align-items: center; /* Align items vertically centered */
+ }
+ 
+ .search-box {
+   display: flex; /* Use flexbox for the search box */
+   align-items: center; /* Align items vertically centered */
+ }
+ 
+ .search-box input {
+   margin-right: 5px; /* Add some spacing between input and button */
+ }
