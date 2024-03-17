@@ -1,10 +1,10 @@
 // ArtistListPage.js
 
 import React, { useState, useEffect } from "react";
-import Navigation from "../common/ArtistListComponents/Navigation";
-import SearchBar from "../common/ArtistListComponents/SearchBar";
-import ArtistTable from "../common/ArtistListComponents/ArtistTable";
-import Pagination from "../common/ArtistListComponents/Pagination";
+import Navigation from "../common/ArtistListComponents/Navigation/Navigation";
+import SearchBar from "../common/ArtistListComponents/SearchBar/SearchBar";
+import ArtistTable from "../common/ArtistListComponents/ArtistTable/ArtistTable";
+import Pagination from "../common/ArtistListComponents/Pagination/Pagination";
 import axios from "axios";
 
 const ArtistListPage = () => {

@@ -1,0 +1,23 @@
+
+.navigation {
+   display: flex;
+   justify-content: flex-start;
+   margin-left: 10px;
+   margin-top: 10px;
+   margin-bottom: 10px;
+ }
+ 
+ .navigation a {
+   text-decoration: none;
+   color: #151515; /* Gray color for inactive links */
+   padding: 10px;
+   font-size: 20px;
+   font-family: 'Arial', sans-serif;
+   transition: color 0.3s ease;
+ }
+ 
+ .navigation .separator {
+   color: black; /* Set color of the separator to black */
+   padding: 10px;
+   font-size: 20px;
+ }

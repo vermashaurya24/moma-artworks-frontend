@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Navigation from "../common/ArtistListComponents/Navigation";
+import Navigation from "../common/ArtistListComponents/Navigation/Navigation";
 import ArtworkListControls from "../common/ArtworkListComponents/ArtworkListControls/ArtworkListControls";
 import ArtworkTable from "../common/ArtworkListComponents/ArtworkTable/ArtworkTable";
-import Pagination from "../common/ArtistListComponents/Pagination";
+import Pagination from "../common/ArtistListComponents/Pagination/Pagination";
 import axios from "axios";
 
 const ArtworkListPage = () => {

@@ -1,4 +1,5 @@
 import React from "react";
+import "./Pagination.css";
 
 function Pagination({ currentPage, totalCount, onPageChange }) {
   const totalPages = Math.ceil(totalCount / 100);

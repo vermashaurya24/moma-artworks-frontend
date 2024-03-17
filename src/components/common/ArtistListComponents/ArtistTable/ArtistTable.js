@@ -1,7 +1,6 @@
-// ArtistTable.js
-
 import React from "react";
-import ArtistTableRow from "./ArtistTableRow";
+import ArtistTableRow from "../ArtistTableRow/ArtistTableRow";
+import "./ArtistTable.css";
 
 function ArtistTable({ artists, onDelete }) {
   return (
