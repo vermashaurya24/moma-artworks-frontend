@@ -1,7 +1,7 @@
 // ArtworkListPage.js
 
 import React from "react";
-import Navigation from "./Navigation";
+import Navigation from "../common/ArtistListComponents/Navigation";
 
 const ArtworkListPage = () => {
   return (

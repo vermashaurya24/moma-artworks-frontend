@@ -2,9 +2,9 @@
 
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import ArtistListPage from "./components/ArtistListPage";
-import ArtworkListPage from "./components/ArtworkListPage";
-import NotFound from "./components/NotFound"; // Import NotFound component
+import ArtistListPage from "./components/pages/ArtistListPage";
+import ArtworkListPage from "./components/pages/ArtworkListPage";
+import NotFound from "./components/pages/NotFound"; // Import NotFound component
 import "./App.css";
 
 function App() {

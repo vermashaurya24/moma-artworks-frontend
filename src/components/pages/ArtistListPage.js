@@ -1,10 +1,10 @@
 // ArtistListPage.js
 
 import React, { useState, useEffect } from "react";
-import Navigation from "./Navigation";
-import SearchBar from "./SearchBar";
-import ArtistTable from "./ArtistTable";
-import Pagination from "./Pagination";
+import Navigation from "../common/ArtistListComponents/Navigation";
+import SearchBar from "../common/ArtistListComponents/SearchBar";
+import ArtistTable from "../common/ArtistListComponents/ArtistTable";
+import Pagination from "../common/ArtistListComponents/Pagination";
 import axios from "axios";
 
 const ArtistListPage = () => {
@@ -40,9 +40,7 @@ const ArtistListPage = () => {
   const handleSearch = async (page) => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/backend-api/artists/artist?displayName=${searchTerm}&cursor=${
-          (page - 1) * 100
-        }`
+        `http://localhost:5000/backend-api/artists/artist?displayName=${searchTerm}&cursor=0`
       );
       setArtists(response.data.rows);
       setTotalCount(response.data.count);
@@ -71,7 +69,7 @@ const ArtistListPage = () => {
     console.log(page);
     if (searchTerm) {
       setCurrentPage(page);
-      handleSearch(searchTerm, page); // Pass searchTerm and page to handleSearch
+      handleSearch(page); // Pass searchTerm and page to handleSearch
     } else {
       setCurrentPage(page);
     }
