@@ -1,14 +1,75 @@
 body {
-  background-color: #929292; /* Light gray background color */
+  background-color: #c7c7c7; /* Light gray background color */
   margin: 0; /* Remove default margin */
   padding: 0; /* Remove default padding */
   font-family: Arial, sans-serif; /* Optional: Set font-family */
   overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
+.navigation {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.navigation a {
+  text-decoration: none;
+  color: #151515; /* Gray color for inactive links */
+  padding: 10px;
+  font-size: 20px;
+  font-family: 'Arial', sans-serif;
+  transition: color 0.3s ease;
+}
+
+.navigation .separator {
+  color: black; /* Set color of the separator to black */
+  padding: 10px;
+  font-size: 20px;
+}
+
 .page-container {
   width: 100%; /* Extend from end to end of screen */
-  /* border: 2px solid red; Add red border for visualization */
+  border: 2px solid red; 
   padding: 0; /* Remove padding to eliminate extra space inside container */
   margin: 0; /* Remove margin to eliminate extra space inside container */
+}
+
+.artist-list-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  min-height: 100vh; /* Ensure full viewport height */
+  width: 100%; /* Extend from end to end of screen */
+  border: 2px solid red; 
+  padding: 0; /* Remove padding to eliminate extra space inside container */
+  margin: 0; /* Remove margin to eliminate extra space inside container */
+}
+
+.search-bar {
+  width: 80%;
+  margin: 30px auto 20px; /* Top margin of 20px, bottom margin of 10px, and auto for horizontal centering */
+}
+
+.pagination {
+  width: 80%;
+  margin: 20px auto 30px; /* Top margin of 10px, bottom margin of 20px, and auto for horizontal centering */
+}
+
+table {
+  width: 80%;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #dddddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
 }
