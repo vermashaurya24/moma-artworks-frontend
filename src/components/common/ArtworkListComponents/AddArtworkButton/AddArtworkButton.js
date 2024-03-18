@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Modal from "../Modal/Modal";
+import AddArtworkForm from "../AddArtworkForm/AddArtworkForm";
+import axios from "axios";
 
 const AddArtworkButton = () => {
   const [showModal, setShowModal] = useState(false);
@@ -12,12 +14,23 @@ const AddArtworkButton = () => {
     setShowModal(false);
   };
 
+  const handleSubmit = async (artworkData) => {
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/backend-api/artworks/",
+        artworkData
+      );
+      console.log("Artwork added successfully:", response.data);
+    } catch (error) {
+      console.error("Error adding artwork:", error);
+    }
+  };
+
   return (
     <div>
       <button onClick={openModal}>Add new artwork</button>
       <Modal showModal={showModal} closeModal={closeModal}>
-        <h2>Modal Title</h2>
-        <p>Modal content goes here.</p>
+        <AddArtworkForm onSubmit={handleSubmit} closeModal={closeModal} />
       </Modal>
     </div>
   );

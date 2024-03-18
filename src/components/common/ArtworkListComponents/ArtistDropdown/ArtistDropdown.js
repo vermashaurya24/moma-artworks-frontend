@@ -24,7 +24,11 @@ const ArtistDropdown = ({ onSelectArtist }) => {
     const selected = artists.find(
       (artist) => artist.artist_id === parseInt(selectedId)
     );
-    onSelectArtist(selected.constituentid);
+    onSelectArtist(
+      selected.constituentid,
+      selected.displayname,
+      selected.nationality
+    );
   };
 
   return (

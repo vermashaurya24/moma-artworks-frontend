@@ -23,7 +23,7 @@ const ArtworkTable = ({ artworks }) => {
             <ArtworkTableRow key={artwork.artwork_id} artwork={artwork} />
           ))
         ) : (
-          <p className="no-artworks-message">Sorry, no artworks found.</p>
+          <tr>Sorry, no artworks found.</tr>
         )}
       </tbody>
     </table>
