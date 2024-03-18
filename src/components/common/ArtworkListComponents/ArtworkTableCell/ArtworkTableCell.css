@@ -1,6 +1,17 @@
 .truncate-cell {
-   white-space: nowrap;      /* Prevent text from wrapping */
-   overflow: hidden;         /* Hide overflowing text */
-   text-overflow: ellipsis;  /* Display ellipsis (...) when text overflows */
-   max-width: 150px;         /* Set a fixed width for the column */
+   white-space: nowrap; 
+   overflow: hidden;
+   text-overflow: ellipsis; 
+   max-width: 150px; 
  }
+
+ .cell-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.leftAlign .cell-content {
+  justify-content: flex-start; 
+}

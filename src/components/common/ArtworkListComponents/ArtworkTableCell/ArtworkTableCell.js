@@ -2,7 +2,7 @@
 import React from "react";
 import "./ArtworkTableCell.css";
 
-const ArtworkTableCell = ({ value, isImage, isURL }) => {
+const ArtworkTableCell = ({ value, isImage, isURL, leftAlign, children }) => {
   const renderContent = () => {
     if (isImage) {
       return (
@@ -23,7 +23,13 @@ const ArtworkTableCell = ({ value, isImage, isURL }) => {
     }
   };
 
-  return <td className="truncate-cell">{renderContent() || "N/A"}</td>;
+  return (
+    <td className={`truncate-cell ${leftAlign ? `leftAlign` : ``}`}>
+      <div className="cell-content">
+        {children ? children : renderContent() || "N/A"}
+      </div>
+    </td>
+  );
 };
 
 export default ArtworkTableCell;
