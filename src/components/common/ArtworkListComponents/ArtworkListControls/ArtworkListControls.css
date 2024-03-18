@@ -1,13 +1,18 @@
 .artwork-list-controls {
-   display: flex; /* Use flexbox */
-   align-items: center; /* Align items vertically centered */
- }
- 
- .search-box {
-   display: flex; /* Use flexbox for the search box */
-   align-items: center; /* Align items vertically centered */
- }
- 
- .search-box input {
-   margin-right: 5px; /* Add some spacing between input and button */
- }
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+}
+
+.search-box input {
+  margin-right: 5px;
+}

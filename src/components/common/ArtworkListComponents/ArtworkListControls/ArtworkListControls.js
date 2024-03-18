@@ -6,7 +6,7 @@ import "./ArtworkListControls.css";
 
 const ArtworkListControls = ({ onSearch, onArtistChange }) => {
   const handleArtistChange = (selectedArtist) => {
-    onArtistChange(selectedArtist); // Call the parent component's function
+    onArtistChange(selectedArtist);
   };
   return (
     <div className="artwork-list-controls">

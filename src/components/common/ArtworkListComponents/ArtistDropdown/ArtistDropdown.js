@@ -1,18 +1,15 @@
-// src/components/common/ArtistDropdown/ArtistDropdown.js
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+const BASE_URL = "http://localhost:5000/backend-api/artists";
+
 const ArtistDropdown = ({ onSelectArtist }) => {
   const [artists, setArtists] = useState([]);
-  const [selectedArtist, setSelectedArtist] = useState(null);
 
   useEffect(() => {
     const fetchArtists = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:5000/backend-api/artists/dropdown"
-        );
+        const response = await axios.get(`${BASE_URL}/dropdown`);
         setArtists(response.data.artists);
       } catch (error) {
         console.error("Error fetching artists:", error);
@@ -27,9 +24,7 @@ const ArtistDropdown = ({ onSelectArtist }) => {
     const selected = artists.find(
       (artist) => artist.artist_id === parseInt(selectedId)
     );
-    setSelectedArtist(selected);
     onSelectArtist(selected.constituentid);
-    console.log("Selected artist:", selected);
   };
 
   return (

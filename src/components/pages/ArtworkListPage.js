@@ -5,37 +5,35 @@ import ArtworkTable from "../common/ArtworkListComponents/ArtworkTable/ArtworkTa
 import Pagination from "../common/ArtistListComponents/Pagination/Pagination";
 import axios from "axios";
 
+const BASE_URL = "http://localhost:5000/backend-api/artworks";
+
 const ArtworkListPage = () => {
   const [artworks, setArtworks] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalCount, setTotalCount] = useState(0);
 
   const fetchArtworks = async (page) => {
-    const response = await axios.get(
-      `http://localhost:5000/backend-api/artworks?cursor=${(page - 1) * 100}`
-    );
+    const response = await axios.get(`${BASE_URL}?cursor=${(page - 1) * 100}`);
     setArtworks(response.data.rows);
   };
 
   const fetchArtworksByArtist = async (constituentid) => {
     const response = await axios.get(
-      `http://localhost:5000/backend-api/artworks/byArtistID?artist_id=${constituentid}&cursor=0`
+      `${BASE_URL}/byArtistID?artist_id=${constituentid}&cursor=0`
     );
     setArtworks(response.data.rows);
   };
 
   const fetchArtworksByTitle = async (title) => {
     const response = await axios.get(
-      `http://localhost:5000/backend-api/artworks/byTitle?title=${title}&cursor=0`
+      `${BASE_URL}/byTitle?title=${title}&cursor=0`
     );
     setArtworks(response.data.rows);
   };
 
   const fetchTotalCount = async () => {
     try {
-      const response = await axios.get(
-        "http://localhost:5000/backend-api/artworks/totalCount"
-      );
+      const response = await axios.get(`${BASE_URL}/totalCount`);
       const totalCountString = response.data.count;
       const totalCountInteger = parseInt(totalCountString[0].count);
       setTotalCount(totalCountInteger);

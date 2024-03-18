@@ -1,6 +1,7 @@
 // ArtworkTable.js
 import React from "react";
 import ArtworkTableRow from "../ArtworkTableRow/ArtworkTableRow";
+import "./ArtworkTable.css";
 
 const ArtworkTable = ({ artworks }) => {
   return (
@@ -17,9 +18,13 @@ const ArtworkTable = ({ artworks }) => {
         </tr>
       </thead>
       <tbody>
-        {artworks.map((artwork) => (
-          <ArtworkTableRow key={artwork.artwork_id} artwork={artwork} />
-        ))}
+        {artworks.length > 0 ? (
+          artworks.map((artwork) => (
+            <ArtworkTableRow key={artwork.artwork_id} artwork={artwork} />
+          ))
+        ) : (
+          <p className="no-artworks-message">Sorry, no artworks found.</p>
+        )}
       </tbody>
     </table>
   );
