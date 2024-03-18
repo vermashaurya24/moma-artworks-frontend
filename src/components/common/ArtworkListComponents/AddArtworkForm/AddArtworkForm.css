@@ -3,12 +3,12 @@
    display: flex;
    flex-direction: column;
    align-items: center;
-   justify-content: center; /* Center vertically */
-   padding: 10px; /* Add padding for spacing */
+   justify-content: center;
+   padding: 10px; 
  }
  
  .form-group {
-   width: 100%; /* Ensure the form elements take up full width */
+   width: 100%;
    margin-bottom: 15px;
  }
  
