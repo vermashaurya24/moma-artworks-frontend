@@ -29,7 +29,11 @@ const AddArtworkButton = () => {
   return (
     <div>
       <button onClick={openModal}>Add new artwork</button>
-      <Modal showModal={showModal} closeModal={closeModal}>
+      <Modal
+        modalText={"Add New Artwork"}
+        showModal={showModal}
+        closeModal={closeModal}
+      >
         <AddArtworkForm onSubmit={handleSubmit} closeModal={closeModal} />
       </Modal>
     </div>

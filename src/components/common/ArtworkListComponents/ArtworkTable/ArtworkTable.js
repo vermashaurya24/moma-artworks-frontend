@@ -1,9 +1,20 @@
 // ArtworkTable.js
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ArtworkTableRow from "../ArtworkTableRow/ArtworkTableRow";
 import "./ArtworkTable.css";
 
 const ArtworkTable = ({ artworks }) => {
+  const [artworkList, setArtworkList] = useState(artworks);
+
+  useEffect(() => {
+    setArtworkList(artworks);
+  }, [artworks]);
+
+  const handleDelete = (deletedArtworkId) => {
+    setArtworkList((prevArtworks) =>
+      prevArtworks.filter((artwork) => artwork.artwork_id !== deletedArtworkId)
+    );
+  };
   return (
     <table>
       <thead>
@@ -18,12 +29,18 @@ const ArtworkTable = ({ artworks }) => {
         </tr>
       </thead>
       <tbody>
-        {artworks.length > 0 ? (
-          artworks.map((artwork) => (
-            <ArtworkTableRow key={artwork.artwork_id} artwork={artwork} />
+        {artworkList.length > 0 ? (
+          artworkList.map((artwork) => (
+            <ArtworkTableRow
+              key={artwork.artwork_id}
+              artwork={artwork}
+              onDelete={handleDelete}
+            />
           ))
         ) : (
-          <tr>Sorry, no artworks found.</tr>
+          <tr>
+            <td colSpan="7">Sorry, no artworks found.</td>
+          </tr>
         )}
       </tbody>
     </table>
