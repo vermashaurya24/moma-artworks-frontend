@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Navigation from "../common/ArtistListComponents/Navigation/Navigation";
+import Navigation from "../common/Navigation/Navigation";
 import ArtworkListControls from "../common/ArtworkListComponents/ArtworkListControls/ArtworkListControls";
 import ArtworkTable from "../common/ArtworkListComponents/ArtworkTable/ArtworkTable";
 import Pagination from "../common/ArtistListComponents/Pagination/Pagination";
@@ -11,10 +11,12 @@ const ArtworkListPage = () => {
   const [artworks, setArtworks] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalCount, setTotalCount] = useState(0);
+  const [searchType, setSearchType] = useState("default");
 
   const fetchArtworks = async (page) => {
     const response = await axios.get(`${BASE_URL}?cursor=${(page - 1) * 100}`);
     setArtworks(response.data.rows);
+    setSearchType("default");
   };
 
   const fetchArtworksByArtist = async (constituentid) => {
@@ -22,6 +24,7 @@ const ArtworkListPage = () => {
       `${BASE_URL}/byArtistID?artist_id=${constituentid}&cursor=0`
     );
     setArtworks(response.data.rows);
+    setSearchType("nondefault");
   };
 
   const fetchArtworksByTitle = async (title) => {
@@ -29,6 +32,7 @@ const ArtworkListPage = () => {
       `${BASE_URL}/byTitle?title=${title}&cursor=0`
     );
     setArtworks(response.data.rows);
+    setSearchType("nondefault");
   };
 
   const fetchTotalCount = async () => {
@@ -80,7 +84,7 @@ const ArtworkListPage = () => {
       <ArtworkTable artworks={artworks} />
       <Pagination
         currentPage={currentPage}
-        totalCount={totalCount}
+        totalCount={searchType === "default" ? totalCount : artworks.length}
         onPageChange={handlePageChange}
       />
     </div>
