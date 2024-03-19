@@ -21,14 +21,28 @@ const ArtistDropdown = ({ onSelectArtist }) => {
 
   const handleArtistClick = (event) => {
     const selectedId = event.target.value;
-    const selected = artists.find(
-      (artist) => artist.artist_id === parseInt(selectedId)
-    );
-    onSelectArtist(
-      selected.constituentid,
-      selected.displayname,
-      selected.nationality
-    );
+    if (selectedId === "") {
+      // If "All Artists" is selected, call onSelectArtist with empty values
+      onSelectArtist("", "", "");
+    } else {
+      // Otherwise, find the selected artist and call onSelectArtist with their details
+      const selected = artists.find(
+        (artist) => artist.artist_id === parseInt(selectedId)
+      );
+      onSelectArtist(
+        selected.constituentid,
+        selected.displayname,
+        selected.nationality
+      );
+    }
+    // const selected = artists.find(
+    //   (artist) => artist.artist_id === parseInt(selectedId)
+    // );
+    // onSelectArtist(
+    //   selected.constituentid,
+    //   selected.displayname,
+    //   selected.nationality
+    // );
   };
 
   return (
