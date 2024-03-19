@@ -2,13 +2,15 @@
 import React, { useState } from "react";
 import ArtworkTableCell from "../ArtworkTableCell/ArtworkTableCell";
 import Modal from "../Modal/Modal";
+import EditArtworkForm from "../EditArtworkForm/EditArtworkForm";
 import axios from "axios";
 
 const ArtworkTableRow = ({ artwork, onDelete }) => {
   const { artwork_id, title, displayname, url, imageurl, nationality, date } =
     artwork;
 
-  const [showModal, setShowModal] = useState(false);
+  const [showViewModal, setShowViewModal] = useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
 
   const handleDelete = async () => {
     try {
@@ -21,12 +23,20 @@ const ArtworkTableRow = ({ artwork, onDelete }) => {
     }
   };
 
-  const openModal = () => {
-    setShowModal(true); // Open the modal when view button is clicked
+  const openViewModal = () => {
+    setShowViewModal(true); // Open the modal when view button is clicked
   };
 
-  const closeModal = () => {
-    setShowModal(false); // Set showModal state to false to close the modal
+  const closeViewModal = () => {
+    setShowViewModal(false); // Set showModal state to false to close the modal
+  };
+
+  const openEditModal = () => {
+    setShowEditModal(true);
+  };
+
+  const closeEditModal = () => {
+    setShowEditModal(false);
   };
 
   return (
@@ -39,21 +49,21 @@ const ArtworkTableRow = ({ artwork, onDelete }) => {
       <ArtworkTableCell value={date} />
       <ArtworkTableCell>
         <div className="cell-buttons">
-          <button>Edit</button>
-          <button onClick={openModal}>View</button>
+          <button onClick={openEditModal}>Edit</button>
+          <button onClick={openViewModal}>View</button>
           <button onClick={handleDelete}>Delete</button>
         </div>
       </ArtworkTableCell>
-      {showModal && (
+      {showViewModal && (
         <Modal
           modalText={"Artwork Details"}
-          showModal={showModal}
-          closeModal={closeModal}
+          showModal={showViewModal}
+          closeModal={closeViewModal}
         >
           <div>
             <h2>{title}</h2>
             <h3>
-              {displayname},{date || " No date given"}
+              {displayname},{" " + date || " No date given"}
             </h3>
             <img
               src={imageurl}
@@ -68,6 +78,15 @@ const ArtworkTableRow = ({ artwork, onDelete }) => {
               {url || "No URL given"}
             </a>
           </div>
+        </Modal>
+      )}
+      {showEditModal && (
+        <Modal
+          modalText={"Edit Artwork"}
+          showModal={showEditModal}
+          closeModal={closeEditModal}
+        >
+          <EditArtworkForm artwork={artwork} closeModal={closeEditModal} />
         </Modal>
       )}
     </tr>
