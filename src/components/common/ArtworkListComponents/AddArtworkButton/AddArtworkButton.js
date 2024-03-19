@@ -17,7 +17,7 @@ const AddArtworkButton = () => {
   const handleSubmit = async (artworkData) => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/backend-api/artworks/",
+        "http://localhost:5000/backend-api/artworks/create",
         artworkData
       );
       console.log("Artwork added successfully:", response.data);

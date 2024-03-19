@@ -15,7 +15,7 @@ const ArtworkTableRow = ({ artwork, onDelete }) => {
   const handleDelete = async () => {
     try {
       await axios.delete(
-        `http://localhost:5000/backend-api/artworks/${artwork_id}`
+        `http://localhost:5000/backend-api/artworks/delete/${artwork_id}`
       );
       onDelete(artwork_id);
     } catch (error) {
