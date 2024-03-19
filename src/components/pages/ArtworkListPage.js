@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Navigation from "../common/Navigation/Navigation";
 import ArtworkListControls from "../common/ArtworkListComponents/ArtworkListControls/ArtworkListControls";
 import ArtworkTable from "../common/ArtworkListComponents/ArtworkTable/ArtworkTable";
-import Pagination from "../common/ArtistListComponents/Pagination/Pagination";
+import Pagination from "../common/Pagination/Pagination";
 import axios from "axios";
 
 const BASE_URL = "http://localhost:5000/backend-api/artworks";
@@ -83,7 +83,7 @@ const ArtworkListPage = () => {
       />
       <ArtworkTable artworks={artworks} />
       <Pagination
-        currentPage={currentPage}
+        currentPage={searchType === "default" ? currentPage : 1}
         totalCount={searchType === "default" ? totalCount : artworks.length}
         onPageChange={handlePageChange}
       />

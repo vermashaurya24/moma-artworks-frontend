@@ -1,10 +1,8 @@
-// ArtistListPage.js
-
 import React, { useState, useEffect } from "react";
-import Navigation from "../common/ArtistListComponents/Navigation/Navigation";
+import Navigation from "../common/Navigation/Navigation";
 import SearchBar from "../common/ArtistListComponents/SearchBar/SearchBar";
 import ArtistTable from "../common/ArtistListComponents/ArtistTable/ArtistTable";
-import Pagination from "../common/ArtistListComponents/Pagination/Pagination";
+import Pagination from "../common/Pagination/Pagination";
 import axios from "axios";
 
 const ArtistListPage = () => {
@@ -37,7 +35,7 @@ const ArtistListPage = () => {
     }
   };
 
-  const handleSearch = async (page) => {
+  const handleSearch = async () => {
     try {
       const response = await axios.get(
         `http://localhost:5000/backend-api/artists/artist?displayName=${searchTerm}&cursor=0`
@@ -68,7 +66,7 @@ const ArtistListPage = () => {
   const handlePageChange = (page) => {
     if (searchTerm) {
       setCurrentPage(page);
-      handleSearch(page); // Pass searchTerm and page to handleSearch
+      handleSearch();
     } else {
       setCurrentPage(page);
     }

@@ -60,7 +60,7 @@ const ArtworkTableRow = ({ artwork, onDelete }) => {
           showModal={showViewModal}
           closeModal={closeViewModal}
         >
-          <div>
+          <div key="modal-content">
             <h2>{title}</h2>
             <h3>
               {displayname},{" " + date || " No date given"}
