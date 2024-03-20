@@ -4,7 +4,7 @@ Welcome to the MoMA Artworks Frontend repository! This project provides the UI i
 
 ## Getting Started
   - Clone this repository onto your local machine
-  - Install dependencies using npm install.
+  - Install dependencies using ```npm install```.
   - Ensure that the backend server is running and the Postgres DB is seeded with data. [Refer here for the backend repository and steps](https://github.com/vermashaurya24/moma-artworks-backend).
   - Run the server using ```npm start``` at the root directory on your terminal.
   - Your website will be live on ```http://localhost:3000```
