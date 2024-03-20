@@ -9,7 +9,6 @@ function App() {
   return (
     <Router>
       <div className="App">
-        {/* Routes */}
         <Routes>
           <Route path="/artists" element={<ArtistListPage />} />
           <Route path="/artworks" element={<ArtworkListPage />} />

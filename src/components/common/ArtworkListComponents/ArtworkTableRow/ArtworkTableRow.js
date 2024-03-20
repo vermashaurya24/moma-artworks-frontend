@@ -24,11 +24,11 @@ const ArtworkTableRow = ({ artwork, onDelete }) => {
   };
 
   const openViewModal = () => {
-    setShowViewModal(true); // Open the modal when view button is clicked
+    setShowViewModal(true);
   };
 
   const closeViewModal = () => {
-    setShowViewModal(false); // Set showModal state to false to close the modal
+    setShowViewModal(false);
   };
 
   const openEditModal = () => {
@@ -39,12 +39,15 @@ const ArtworkTableRow = ({ artwork, onDelete }) => {
     setShowEditModal(false);
   };
 
+  const backupImageUrl =
+    "https://via.placeholder.com/300x150?text=Image+Not+Found";
+
   return (
     <tr>
       <ArtworkTableCell value={title} leftAlign={true} />
       <ArtworkTableCell value={displayname} leftAlign={true} />
       <ArtworkTableCell value={url} isURL={true} leftAlign={true} />
-      <ArtworkTableCell value={imageurl} isImage={true} />
+      <ArtworkTableCell value={imageurl || backupImageUrl} isImage={true} />
       <ArtworkTableCell value={nationality} />
       <ArtworkTableCell value={date} />
       <ArtworkTableCell>
@@ -66,7 +69,7 @@ const ArtworkTableRow = ({ artwork, onDelete }) => {
               {displayname},{" " + date || " No date given"}
             </h3>
             <img
-              src={imageurl}
+              src={imageurl || backupImageUrl}
               alt={title}
               style={{
                 maxWidth: "100%",

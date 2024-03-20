@@ -13,12 +13,14 @@ const ArtworkListPage = () => {
   const [totalCount, setTotalCount] = useState(0);
   const [searchType, setSearchType] = useState("default");
 
+  //Function to fetch artworks in paginated format
   const fetchArtworks = async (page) => {
     const response = await axios.get(`${BASE_URL}?cursor=${(page - 1) * 100}`);
     setArtworks(response.data.rows);
     setSearchType("default");
   };
 
+  //Function to fetch all artworks published by specific artist.
   const fetchArtworksByArtist = async (constituentid) => {
     const response = await axios.get(
       `${BASE_URL}/byArtistID?artist_id=${constituentid}&cursor=0`
@@ -27,6 +29,7 @@ const ArtworkListPage = () => {
     setSearchType("nondefault");
   };
 
+  //Function to fetch artworks matching by given title.
   const fetchArtworksByTitle = async (title) => {
     const response = await axios.get(
       `${BASE_URL}/byTitle?title=${title}&cursor=0`
@@ -35,6 +38,7 @@ const ArtworkListPage = () => {
     setSearchType("nondefault");
   };
 
+  //Function to count total artworks in our table. Used to calculate total pages for pagination.
   const fetchTotalCount = async () => {
     try {
       const response = await axios.get(`${BASE_URL}/totalCount`);

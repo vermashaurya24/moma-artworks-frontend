@@ -15,13 +15,21 @@ function ArtistTable({ artists, onDelete }) {
         </tr>
       </thead>
       <tbody>
-        {artists.map((artist) => (
-          <ArtistTableRow
-            key={artist.artist_id}
-            artist={artist}
-            onDelete={onDelete}
-          />
-        ))}
+        {artists.length === 0 ? (
+          <tr>
+            <td colSpan="5" style={{ textAlign: "left" }}>
+              No artist found with given name. Try searching something else.
+            </td>
+          </tr>
+        ) : (
+          artists.map((artist) => (
+            <ArtistTableRow
+              key={artist.artist_id}
+              artist={artist}
+              onDelete={onDelete}
+            />
+          ))
+        )}
       </tbody>
     </table>
   );
