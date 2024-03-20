@@ -1,4 +1,3 @@
-// ArtworkTable.js
 import React, { useState, useEffect } from "react";
 import ArtworkTableRow from "../ArtworkTableRow/ArtworkTableRow";
 import "./ArtworkTable.css";

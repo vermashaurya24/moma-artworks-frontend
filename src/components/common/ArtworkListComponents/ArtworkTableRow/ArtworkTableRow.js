@@ -1,4 +1,3 @@
-// ArtworkTableRow.js
 import React, { useState } from "react";
 import ArtworkTableCell from "../ArtworkTableCell/ArtworkTableCell";
 import Modal from "../Modal/Modal";

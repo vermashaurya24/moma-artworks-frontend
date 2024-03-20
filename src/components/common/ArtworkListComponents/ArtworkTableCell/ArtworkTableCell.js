@@ -1,4 +1,3 @@
-// ArtworkTableCell.js
 import React from "react";
 import "./ArtworkTableCell.css";
 

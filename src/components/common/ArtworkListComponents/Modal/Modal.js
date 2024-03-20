@@ -1,6 +1,7 @@
 import React from "react";
 import "./Modal.css";
 
+//Reusable Modal component.
 const Modal = ({ modalText, showModal, closeModal, children }) => {
   return (
     <>
